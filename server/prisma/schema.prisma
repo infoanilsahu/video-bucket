@@ -1,0 +1,41 @@
+
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id String @id @default(uuid())
+  username String @unique
+  password String
+  gender  Gender
+  channelName String 
+  banner String?
+  profilePicture String?
+  subscriberCount Int @default(0)
+
+  uploads Uploads[]
+}
+
+enum Gender {
+  Male
+  Female
+  Others
+}
+
+model Uploads {
+  id String @id @default(uuid())
+  userId String
+  videoUrl String
+  thumbnailUrl String
+  title String
+  description String
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}
