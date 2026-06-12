@@ -77,11 +77,7 @@ router.post('/login', async (req, res) => {
   // Generate token
   const token = signToken(user.id, user.username);
 
-  res.cookie("token", token, {
-    httpOnly: true,
-    secure: true,
-    sameSite: "strict"
-  })
+  res.cookie("token", token)
 
   res.status(200).json({ 
     message: "user successfully login",
