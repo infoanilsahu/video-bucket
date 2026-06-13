@@ -1,7 +1,7 @@
 "use client"
 
 import { VideoCart } from "@/components/common/videoCard";
-import axios from "axios";
+import { api } from "@/lib/api";
 import { useEffect, useState } from "react";
 
 export function Home() {
@@ -9,7 +9,7 @@ export function Home() {
     const [videos, setVideos] = useState<HomeVideo[]>([])
 
     useEffect(() => {
-        axios.get("http://localhost:3000/api/video")
+        api.get("http://localhost:3000/api/video")
         .then( (res) => {
             if ( res.status == 200 ) {
 
@@ -24,7 +24,7 @@ export function Home() {
 
     return (
         <div className="">
-            {videos && videos?.map((video) => <VideoCart
+            {videos && videos.map((video) => <VideoCart
                 id={video.id}
                 title={video.title}
                 description={video.description}
