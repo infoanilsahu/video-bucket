@@ -48,8 +48,15 @@ router.get("/", async (req, res) => {
   try {
 
     const videos = await prisma.uploads.findMany({
-      include: {user: {select: {id: true, channelName: true, profilePicture: true}}},
-      orderBy: {createdAt: "desc"}
+      select: {
+        id: true,
+        title: true,
+        description: true,
+        thumbnailUrl: true,
+        createdAt: true,
+        user: {select: {id: true, channelName: true, profilePicture: true}}
+      },
+      orderBy: {createdAt: "desc"},
     })
 
     return res.status(200).json({
