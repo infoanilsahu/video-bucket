@@ -11,6 +11,11 @@ export function VideoPage() {
     const id = searchParams.get("vid")
 
     async function dataLoad() {
+        if( !id ) {
+            setVideo(undefined)
+            return
+        }
+
         try {
             const res = await api.get(`/api/video/${id}`)
 

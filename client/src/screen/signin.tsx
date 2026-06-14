@@ -10,6 +10,7 @@ export function SignIn() {
         try {
             const res = await api({
                 method: "POST",
+                url: "/api/auth/login",
                 data: {
                     username, password
                 }
