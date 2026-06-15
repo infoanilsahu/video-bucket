@@ -3,6 +3,7 @@ import "./index.css";
 import { BrowserRouter, Route, Router, Routes } from "react-router";
 import { Home } from "./screen/Home";
 import { VideoPage } from "./screen/videopage";
+import { SignIn } from "./screen/signin";
 
 
 export function App() {
@@ -12,6 +13,7 @@ export function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/watch" element={<VideoPage />} />
+          <Route path="/signin" element={<SignIn />} />
         </Routes>
       </BrowserRouter>
     </div>
