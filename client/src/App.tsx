@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Router, Routes } from "react-router";
 import { Home } from "./screen/Home";
 import { VideoPage } from "./screen/videopage";
 import { SignIn } from "./screen/signin";
+import { Upload } from "./screen/upload";
 
 
 export function App() {
@@ -14,6 +15,7 @@ export function App() {
           <Route path="/" element={<Home />} />
           <Route path="/watch" element={<VideoPage />} />
           <Route path="/signin" element={<SignIn />} />
+          <Route path="/upload" element={<Upload />} />
         </Routes>
       </BrowserRouter>
     </div>
