@@ -5,8 +5,8 @@ export function VideoCart( {thumbnailUrl, userProfilePicture, title, userChannel
     const router = useNavigate()
 
 
-    return <div className=" m-1 cursor-pointer w-100 h-75 overflow-hidden" onClick={() => router(`/watch?vid=${id}`)} >
-        <div className=" rounded-2xl overflow-hidden ">
+    return <div className=" m-1 cursor-pointer overflow-hidden" onClick={() => router(`/watch?vid=${id}`)} >
+        <div className=" rounded-2xl overflow-hidden  w-100 h-56 ">
             <img src={thumbnailUrl} alt="thumbnail" />
         </div>
         <div className="content flex gap-5 mt-1">
