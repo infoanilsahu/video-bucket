@@ -21,6 +21,7 @@ app.use(cookieParser());
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/video', videoRoutes);
+app.use('/api/getpresignurl', objectStore)
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
