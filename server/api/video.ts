@@ -54,7 +54,7 @@ router.get("/", async (req, res) => {
         description: true,
         thumbnailUrl: true,
         createdAt: true,
-        user: {select: {id: true, channelName: true, profilePicture: true}}
+        user: {select: {id: true, channelName: true, profilePicture: true, username: true}}
       },
       orderBy: {createdAt: "desc"},
     })
@@ -75,7 +75,7 @@ router.get("/:id", async (req, res) => {
   
     const video = await prisma.uploads.findUnique({
       where: {id: id},
-      include: {user: {select: {id: true, channelName: true, profilePicture: true, subscriberCount: true}}}
+      include: {user: {select: {id: true, channelName: true, username: true, profilePicture: true, subscriberCount: true}}}
     })
 
     if( !video ) return res.status(404).json({ message: "video not found"})
