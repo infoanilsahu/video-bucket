@@ -5,6 +5,7 @@ import { Home } from "./screen/Home";
 import { VideoPage } from "./screen/videopage";
 import { SignIn } from "./screen/signin";
 import { Upload } from "./screen/upload";
+import { Channel } from "./screen/channel";
 
 
 export function App() {
@@ -16,6 +17,7 @@ export function App() {
           <Route path="/watch" element={<VideoPage />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/upload" element={<Upload />} />
+          <Route path="/channel/:username" element={<Channel />} />
         </Routes>
       </BrowserRouter>
     </div>

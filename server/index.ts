@@ -5,6 +5,7 @@ import authRoutes from './api/auth';
 import videoRoutes from './api/video';
 import cookieParser from 'cookie-parser'
 import objectStore from './api/objectStore'
+import channel from './api/channel'
 
 const app = express();
 const PORT = 3000;
@@ -22,6 +23,7 @@ app.use(cookieParser());
 app.use('/api/auth', authRoutes);
 app.use('/api/video', videoRoutes);
 app.use('/api/getpresignurl', objectStore)
+app.use('/api/channel', channel)
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useSearchParams } from "react-router"
+import { useNavigate, useSearchParams } from "react-router"
 import { api } from "./../lib/api";
 
 export function VideoPage() {
@@ -9,6 +9,8 @@ export function VideoPage() {
     const [loading, setLoading] = useState(false)
 
     const id = searchParams.get("vid")
+
+    const router = useNavigate()
 
     async function dataLoad() {
         if( !id ) {
@@ -30,7 +32,7 @@ export function VideoPage() {
         }
     }
     
-    async function sunbscribe() {
+    async function subscribe() {
         try {
             
         } catch (error: any) {
@@ -50,11 +52,11 @@ export function VideoPage() {
                     <h3>{video.title}</h3>
                     <p>{video.description}</p>
                     <div className="channel flex gap-17">
-                        <div className="flex gap-2">
+                        <div className="flex gap-2 cursor-pointer" onClick={() => router(`/channel/${video.user.username}`) }>
                             <img src={video.user.profilePicture} alt="" className="rounded-[50%] w-10 "/>
                             <h2>{video.user.channelName}</h2>
                         </div>
-                        <button className="cursor-pointer px-4 rounded-md font-bold bg-black text-white" onClick={sunbscribe}>Subscribe</button>
+                        <button className="cursor-pointer px-4 rounded-md font-bold bg-black text-white" onClick={subscribe}>Subscribe</button>
                     </div>
                 </div>
             </>
@@ -72,6 +74,7 @@ interface VideoProp {
     createdAt: string;
     user: {
         id: string;
+        username: string;
         channelName: string;
         profilePicture: string;
         subscriberCount: number;

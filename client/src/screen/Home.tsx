@@ -33,6 +33,7 @@ export function Home() {
                 userid={video.user.id}
                 userChannelName={video.user.channelName}
                 userProfilePicture={video.user.profilePicture}
+                username={video.user.username}
             />)}
         </div>
     )
@@ -48,5 +49,6 @@ interface HomeVideo {
         id: string,
         channelName: string,
         profilePicture: string
+        username: string;
     }
 }
