@@ -52,7 +52,7 @@ export function Channel() {
 
     useEffect(() => {
         loadData()
-    },[])
+    },[username])
     
 
     return (
