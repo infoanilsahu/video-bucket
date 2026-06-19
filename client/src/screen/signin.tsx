@@ -24,7 +24,6 @@ export function SignIn() {
             })
 
             if ( res.status === 200 ) {
-                console.log(res.data);
                 
                 router("/")
             }

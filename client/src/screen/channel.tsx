@@ -37,9 +37,6 @@ export function Channel() {
             if( res.status ) {
                 const { chanel, uploads } = res.data
 
-                console.log(res);
-                
-
                 setChannel(chanel)
                 setUploads(uploads)
             }

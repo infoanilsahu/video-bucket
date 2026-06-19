@@ -16,7 +16,6 @@ export function Home() {
                 const { videos } = res.data
                 
                 setVideos(videos)
-                console.log("res data",res.data);
             }
             
         })
